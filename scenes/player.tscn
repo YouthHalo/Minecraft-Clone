@@ -6,7 +6,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_dk5n1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bejbg"]
-size = Vector3(1, 1.875, 1)
+size = Vector3(0.8, 1.875, 0.6)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
 height = 1.875
