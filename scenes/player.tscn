@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbv6dt16s1u6w"]
+[gd_scene load_steps=6 format=3 uid="uid://dbv6dt16s1u6w"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_m7xfk"]
 [ext_resource type="PackedScene" uid="uid://4v22jk0e768k" path="res://scenes/ui.tscn" id="2_841bh"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_dk5n1"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_bejbg"]
-size = Vector3(1, 2, 1)
+size = Vector3(1, 1.875, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
+height = 1.875
 radial_segments = 8
 
 [node name="Player" type="CharacterBody3D"]
@@ -17,6 +20,12 @@ script = ExtResource("1_m7xfk")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -0.05)
+fov = 90.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
+transform = Transform3D(0.0501843, -0.0794656, -0.241667, 0.155184, 0.392009, 0, 0.189471, -0.300023, 0.0640091, 0.467294, -0.62, -0.711326)
+mesh = SubResource("BoxMesh_dk5n1")
+skeleton = NodePath("../..")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 omni_range = 32.0
