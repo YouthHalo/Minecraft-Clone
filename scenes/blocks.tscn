@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=4 format=3 uid="uid://8hb8nhoavwut"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_deq1h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oj6i6"]
+height = 1.0
 
 [node name="Blocks" type="Node3D"]
 
@@ -12,4 +15,13 @@ mesh = SubResource("BoxMesh_bwjug")
 [node name="StaticBody3D" type="StaticBody3D" parent="Basic Block"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Block/StaticBody3D"]
+shape = SubResource("BoxShape3D_deq1h")
+
+[node name="Basic Block2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("CapsuleMesh_oj6i6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Basic Block2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Block2/StaticBody3D"]
 shape = SubResource("BoxShape3D_deq1h")
