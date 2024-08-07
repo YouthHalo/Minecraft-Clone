@@ -64,15 +64,20 @@ func breakBlock():
 		var collider = raycast.get_collider()
 		if collider is GridMap:
 			var collisionPoint = raycast.get_collision_point()
-			collider.set_cell_item(collider.local_to_map(collisionPoint), -1)
+			if collider.get_cell_item(collider.local_to_map(collisionPoint)) == -1:
+				collider.set_cell_item(collider.local_to_map(collisionPoint + Vector3(-0.01 , -0.01, -0.01)), -1)
+			else:
+				collider.set_cell_item(collider.local_to_map(collisionPoint), -1)
 
 func buildBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		if collider is GridMap:
 			var collisionPoint = raycast.get_collision_point()
-			collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
-			print(collider.get_cell_item_orientation(collider.local_to_map(collisionPoint)))
+			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
+				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
+			else:
+				collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
 			
 
 func _physics_process(delta):
