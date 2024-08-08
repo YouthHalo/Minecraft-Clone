@@ -36,3 +36,5 @@ debug_shape_thickness = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]

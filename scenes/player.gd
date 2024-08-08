@@ -1,16 +1,16 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sens = 0.005
-var speedmulti = 0
+var speedmulti = 1
 var rot_x = 0
 var rot_y = 0
-var blockID = 0
+var blockID = 2
 
 @onready var raycast = $Camera3D/RayCast3D
 @onready var camera = $Camera3D
@@ -26,7 +26,7 @@ func movement(delta):
 		velocity.y -= gravity * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -52,7 +52,7 @@ func movement(delta):
 
 func _input(event):
 	
-	if position.y < -20
+	if position.y < -20:
 		get_tree().quit()
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# modify accumulated mouse rotation
@@ -67,9 +67,7 @@ func _input(event):
 
 
 	if Input.is_action_just_pressed("leftClick"):
-		
 		breakBlock()
-		
 		
 	if Input.is_action_just_pressed("rightClick"):
 		buildBlock()

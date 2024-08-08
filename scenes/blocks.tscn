@@ -1,35 +1,75 @@
-[gd_scene load_steps=6 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=11 format=3 uid="uid://8hb8nhoavwut"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
+[ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
+[ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/cobblestone.png" id="3_0pooe"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_dsn76"]
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3nwgb"]
 albedo_texture = ExtResource("1_j26ju")
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
-material = SubResource("ORMMaterial3D_dsn76")
+material = SubResource("ORMMaterial3D_3nwgb")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_deq1h"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgpph"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oj6i6"]
-height = 1.0
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_hbqsn"]
+albedo_texture = ExtResource("2_j3n7k")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_wgphs"]
+material = SubResource("ORMMaterial3D_hbqsn")
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3rcau"]
+albedo_texture = ExtResource("3_0pooe")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_qkcne"]
+material = SubResource("ORMMaterial3D_3rcau")
 
 [node name="Blocks" type="Node3D"]
 
-[node name="Basic Block" type="MeshInstance3D" parent="."]
+[node name="0- Dirt" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_bwjug")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Basic Block"]
+[node name="StaticBody3D" type="StaticBody3D" parent="0- Dirt"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Block/StaticBody3D"]
-shape = SubResource("BoxShape3D_deq1h")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="0- Dirt/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
 
-[node name="Basic Block2" type="MeshInstance3D" parent="."]
+[node name="1- Stone" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-mesh = SubResource("CapsuleMesh_oj6i6")
+mesh = SubResource("BoxMesh_wgphs")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Basic Block2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="1- Stone"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic Block2/StaticBody3D"]
-shape = SubResource("BoxShape3D_deq1h")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="1- Stone/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
+
+[node name="2- Cobblestone" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+mesh = SubResource("BoxMesh_qkcne")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="2- Cobblestone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="2- Cobblestone/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
+
+[node name="Block4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block4/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
+
+[node name="Block5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block5/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
