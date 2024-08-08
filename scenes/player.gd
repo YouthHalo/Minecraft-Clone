@@ -15,13 +15,22 @@ var blockID = 2
 var canPlace = true
 var canBreak = true
 
-@onready var raycast = $Camera3D/RayCast3D
+
 @onready var camera = $Camera3D
+@onready var raycast = $Camera3D/RayCast3D
+@onready var blockChecker = $"Block Checker"
 
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	hideBlocks()
+	blockHand()
 
+func hideBlocks():
+	$"Camera3D/Blocks/0 - Dirt".hide()
+	$"Camera3D/Blocks/1 - Stone".hide()
+	$"Camera3D/Blocks/2 - Cobblestone".hide()
+	$"Camera3D/Blocks/3 - Diamond Ore".hide()
 
 func movement(delta):
 	# Add the gravity.
@@ -49,6 +58,13 @@ func movement(delta):
 	if Input.is_action_just_released("crouch"):
 		camera.position.y = 0.62
 		speedmulti = 1
+	
+	if Input.is_action_just_pressed("scrollUp"):
+		blockID += 1
+		blockHand()
+	if Input.is_action_just_pressed("scrollDown"):
+		blockID -= 1
+		blockHand()
 
 
 func _input(event):
@@ -85,7 +101,7 @@ func breakBlock():
 			else:
 				collider.set_cell_item(collider.local_to_map(collisionPoint), -1)
 			canBreak = false
-			await get_tree().create_timer(1/60).timeout
+			await get_tree().create_timer(0.0166666666667).timeout
 			canBreak = true
 
 func buildBlock():
@@ -94,6 +110,9 @@ func buildBlock():
 		if collider is GridMap and canPlace:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
+				blockChecker.position = (collider.local_to_map(collisionPoint + raycast.get_collision_normal()))
+				print(blockChecker.position)
+				print(blockChecker.overlaps_area($CollisionShape3D))
 				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
 				return
 			else:
@@ -102,6 +121,16 @@ func buildBlock():
 			await get_tree().create_timer(1/60).timeout
 			canPlace = true
 
+func blockHand():
+	hideBlocks()
+	if blockID == 0:
+		$"Camera3D/Blocks/0 - Dirt".show()
+	if blockID == 1:
+		$"Camera3D/Blocks/1 - Stone".show()
+	if blockID == 2:
+		$"Camera3D/Blocks/2 - Cobblestone".show()
+	if blockID == 3:
+		$"Camera3D/Blocks/3 - Diamond Ore".show()
 
 func _physics_process(delta):
 	movement(delta)

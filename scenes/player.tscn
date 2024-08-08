@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbv6dt16s1u6w"]
+[gd_scene load_steps=11 format=3 uid="uid://dbv6dt16s1u6w"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_m7xfk"]
 [ext_resource type="PackedScene" uid="uid://4v22jk0e768k" path="res://scenes/ui.tscn" id="2_841bh"]
+[ext_resource type="PackedScene" uid="uid://8hb8nhoavwut" path="res://scenes/blocks.tscn" id="3_mov4e"]
+[ext_resource type="PackedScene" uid="uid://b5dc8bunghemx" path="res://scenes/blockChecker.tscn" id="4_34o50"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
 height = 1.875
@@ -28,20 +30,23 @@ script = ExtResource("1_m7xfk")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_87rgw")
 
-[node name="UI" parent="." instance=ExtResource("2_841bh")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62, -0.05)
 fov = 90.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(0.0501843, -0.0794656, -0.241667, 0.155184, 0.392009, 0, 0.189471, -0.300023, 0.0640091, 0.467294, -0.62, -0.711326)
+transform = Transform3D(0.0501844, -0.0794656, -0.241667, 0.155184, 0.392009, 2.98202e-08, 0.189471, -0.300023, 0.0640091, 1.03547, -0.62, -0.87573)
 mesh = SubResource("BoxMesh_dk5n1")
 skeleton = NodePath("../..")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 target_position = Vector3(0, 0, -5)
 debug_shape_thickness = 5
+
+[node name="Blocks" parent="Camera3D" instance=ExtResource("3_mov4e")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.00248, -0.334663, -1.04436)
+
+[node name="UI" parent="Camera3D" instance=ExtResource("2_841bh")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
@@ -75,3 +80,5 @@ skeleton = NodePath("../limb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 4)
 mesh = SubResource("BoxMesh_mapiq")
 skeleton = NodePath("../limb")
+
+[node name="Block Checker" parent="." instance=ExtResource("4_34o50")]
