@@ -1,8 +1,7 @@
 extends CharacterBody3D
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 5
-
+const JUMP_VELOCITY = 6.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -12,6 +11,9 @@ var health = 100
 var rot_x = 0
 var rot_y = 0
 var blockID = 2
+
+var canPlace = true
+var canBreak = true
 
 @onready var raycast = $Camera3D/RayCast3D
 @onready var camera = $Camera3D
@@ -76,24 +78,29 @@ func _input(event):
 func breakBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider is GridMap:
+		if collider is GridMap and canBreak:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) == -1:
 				collider.set_cell_item(collider.local_to_map(collisionPoint + Vector3(-0.01 , -0.01, -0.01)), -1)
 			else:
 				collider.set_cell_item(collider.local_to_map(collisionPoint), -1)
+			canBreak = false
+			await get_tree().create_timer(1/60).timeout
+			canBreak = true
 
 func buildBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider is GridMap:
+		if collider is GridMap and canPlace:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
 				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
-				
 				return
 			else:
 				collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
+			canPlace = false
+			await get_tree().create_timer(1/60).timeout
+			canPlace = true
 
 
 func _physics_process(delta):
