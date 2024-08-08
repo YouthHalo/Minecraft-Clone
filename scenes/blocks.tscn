@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=14 format=3 uid="uid://8hb8nhoavwut"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
 [ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
 [ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/cobblestone.png" id="3_0pooe"]
+[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/diamond_ore.png" id="4_5y11v"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3nwgb"]
 albedo_texture = ExtResource("1_j26ju")
@@ -29,6 +30,14 @@ texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_qkcne"]
 material = SubResource("ORMMaterial3D_3rcau")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dnv44"]
+albedo_texture = ExtResource("4_5y11v")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_6c7u2"]
+material = SubResource("StandardMaterial3D_dnv44")
 
 [node name="Blocks" type="Node3D"]
 
@@ -60,6 +69,7 @@ shape = SubResource("BoxShape3D_fgpph")
 
 [node name="Block4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+mesh = SubResource("BoxMesh_6c7u2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Block4"]
 

@@ -8,6 +8,7 @@ const JUMP_VELOCITY = 5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_sens = 0.005
 var speedmulti = 1
+var health = 100
 var rot_x = 0
 var rot_y = 0
 var blockID = 2
@@ -46,25 +47,25 @@ func movement(delta):
 	if Input.is_action_just_released("crouch"):
 		camera.position.y = 0.62
 		speedmulti = 1
-		
-	
 
 
 func _input(event):
-	
-	if position.y < -20:
+	if position.y < -10:
 		get_tree().quit()
+
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# modify accumulated mouse rotation
 		rot_x += -(event.relative.x * mouse_sens)
 		rot_y += -(event.relative.y * mouse_sens)
 		
+		if rot_y > deg_to_rad(90):
+			rot_y = deg_to_rad(90)
+		if rot_y < deg_to_rad(-90):
+			rot_y = deg_to_rad(-90)
 		camera.transform.basis = Basis() # reset rotation
 		transform.basis = Basis()
 		rotate_object_local(Vector3(0, 1, 0), rot_x) # rotate player in Y
-		
-		camera.rotate_object_local(Vector3(1, 0, 0), rot_y) # then rotate in X for camera
-
+		camera.rotation.x = clamp(rot_y, deg_to_rad(-90), deg_to_rad(90))
 
 	if Input.is_action_just_pressed("leftClick"):
 		breakBlock()
@@ -89,9 +90,11 @@ func buildBlock():
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
 				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
+				
+				return
 			else:
 				collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
-			
+
 
 func _physics_process(delta):
 	movement(delta)
