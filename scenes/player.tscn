@@ -3,18 +3,21 @@
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_m7xfk"]
 [ext_resource type="PackedScene" uid="uid://4v22jk0e768k" path="res://scenes/ui.tscn" id="2_841bh"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
+height = 1.875
+radial_segments = 8
+
 [sub_resource type="BoxMesh" id="BoxMesh_dk5n1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bejbg"]
 size = Vector3(0.8, 1.875, 0.6)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
-height = 1.875
-radial_segments = 8
-
 [node name="Player" type="CharacterBody3D"]
 motion_mode = 1
 script = ExtResource("1_m7xfk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_87rgw")
 
 [node name="UI" parent="." instance=ExtResource("2_841bh")]
 
@@ -31,12 +34,5 @@ skeleton = NodePath("../..")
 target_position = Vector3(0, 0, -5)
 debug_shape_thickness = 5
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-omni_range = 32.0
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-mesh = SubResource("CapsuleMesh_87rgw")
-skeleton = NodePath("../..")

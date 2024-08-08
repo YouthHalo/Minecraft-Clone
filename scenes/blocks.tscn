@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=6 format=3 uid="uid://8hb8nhoavwut"]
+
+[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_dsn76"]
+albedo_texture = ExtResource("1_j26ju")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
+material = SubResource("ORMMaterial3D_dsn76")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_deq1h"]
 
