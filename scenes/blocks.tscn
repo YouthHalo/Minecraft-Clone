@@ -74,7 +74,6 @@ mesh = SubResource("BoxMesh_6c7u2")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="Block5" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Block5"]
 

@@ -1,14 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://d06535vx078d7"]
+[gd_scene load_steps=4 format=3 uid="uid://d06535vx078d7"]
+
+[ext_resource type="Texture2D" uid="uid://ce8viiktrys41" path="res://assets/highlight.png" id="1_iqp2h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioo11"]
-blend_mode = 1
+transparency = 1
 shading_mode = 0
-grow = true
-grow_amount = 0.001
+albedo_texture = ExtResource("1_iqp2h")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_vw6oc"]
 material = SubResource("StandardMaterial3D_ioo11")
 
 [node name="Block Select" type="MeshInstance3D"]
-transparency = 0.9
 mesh = SubResource("BoxMesh_vw6oc")
