@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbv6dt16s1u6w"]
+[gd_scene load_steps=11 format=3 uid="uid://dbv6dt16s1u6w"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_m7xfk"]
 [ext_resource type="PackedScene" uid="uid://4v22jk0e768k" path="res://scenes/ui.tscn" id="2_841bh"]
 [ext_resource type="PackedScene" uid="uid://8hb8nhoavwut" path="res://scenes/blocks.tscn" id="3_mov4e"]
+[ext_resource type="PackedScene" uid="uid://b5dc8bunghemx" path="res://scenes/blockChecker.tscn" id="4_34o50"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_87rgw"]
 height = 1.875
@@ -79,3 +80,6 @@ skeleton = NodePath("../limb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 4)
 mesh = SubResource("BoxMesh_mapiq")
 skeleton = NodePath("../limb")
+
+[node name="Block Checker" parent="." instance=ExtResource("4_34o50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)

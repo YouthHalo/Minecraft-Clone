@@ -18,7 +18,7 @@ var canBreak = true
 
 @onready var camera = $Camera3D
 @onready var raycast = $Camera3D/RayCast3D
-@onready var blockChecker = $"Block Checker"
+@onready var blockChecker = $"../Block Checker"
 
 
 func _ready():
@@ -110,12 +110,15 @@ func buildBlock():
 		if collider is GridMap and canPlace:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
-				blockChecker.position = (collider.local_to_map(collisionPoint + raycast.get_collision_normal()))
+				blockChecker.position = collider.local_to_map(collisionPoint + raycast.get_collision_normal())
+				blockChecker.position = round(blockChecker.position) + Vector3(0.5, 0.5, 0.5)
 				print(blockChecker.position)
-				print(blockChecker.overlaps_area($CollisionShape3D))
+				print(blockChecker.overlaps_body($CollisionShape3D))
 				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
 				return
 			else:
+				blockChecker.position = (collisionPoint)
+				blockChecker.position = round(blockChecker.position)
 				collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
 			canPlace = false
 			await get_tree().create_timer(1/60).timeout

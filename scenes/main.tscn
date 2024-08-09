@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djjwdkiw41a7i"]
+[gd_scene load_steps=7 format=3 uid="uid://djjwdkiw41a7i"]
 
 [ext_resource type="PackedScene" uid="uid://dbv6dt16s1u6w" path="res://scenes/player.tscn" id="1_qbkm8"]
 [ext_resource type="PackedScene" uid="uid://dxj17o3nuva70" path="res://scenes/grid_map.tscn" id="2_g40ro"]
+[ext_resource type="PackedScene" uid="uid://b5dc8bunghemx" path="res://scenes/blockChecker.tscn" id="3_iqqm5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6lqq2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,3 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 motion_mode = 0
 
 [node name="GridMap" parent="." instance=ExtResource("2_g40ro")]
+
+[node name="Block Checker" parent="." instance=ExtResource("3_iqqm5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[connection signal="body_entered" from="Block Checker" to="Player" method="_on_block_checker_body_entered"]
