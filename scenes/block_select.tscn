@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d06535vx078d7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioo11"]
+transparency = 1
+cull_mode = 1
+shading_mode = 2
+diffuse_mode = 3
+
+[sub_resource type="BoxMesh" id="BoxMesh_vw6oc"]
+material = SubResource("StandardMaterial3D_ioo11")
+size = Vector3(1.02, 1.02, 1.02)
+
+[node name="Block Select" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_vw6oc")

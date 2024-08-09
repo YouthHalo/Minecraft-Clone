@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://djjwdkiw41a7i"]
+[gd_scene load_steps=7 format=3 uid="uid://djjwdkiw41a7i"]
 
 [ext_resource type="PackedScene" uid="uid://dbv6dt16s1u6w" path="res://scenes/player.tscn" id="1_qbkm8"]
 [ext_resource type="PackedScene" uid="uid://dxj17o3nuva70" path="res://scenes/grid_map.tscn" id="2_g40ro"]
+[ext_resource type="PackedScene" uid="uid://d06535vx078d7" path="res://scenes/block_select.tscn" id="3_v1jpw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6lqq2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -30,3 +31,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 motion_mode = 0
 
 [node name="GridMap" parent="." instance=ExtResource("2_g40ro")]
+
+[node name="Block Select" parent="." instance=ExtResource("3_v1jpw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 1.5)
