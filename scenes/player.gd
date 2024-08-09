@@ -23,7 +23,6 @@ var canBreak = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$"../Block Checker/MeshInstance3D".transparency = 0
 	hideBlocks()
 	blockHand()
 
@@ -111,14 +110,10 @@ func buildBlock():
 		if collider is GridMap:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
-				blockChecker.position = collider.local_to_map(collisionPoint + raycast.get_collision_normal())
-				blockChecker.position +=  Vector3(0.5, 0.5, 0.5)
 				if canPlace:
 					collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
 				return
 			else:
-				blockChecker.position = collider.local_to_map(collisionPoint)
-				blockChecker.position += Vector3(0.5, 0.5, 0.5)
 				if canPlace:
 					collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
 			if canPlace:
@@ -140,28 +135,3 @@ func blockHand():
 func _physics_process(delta):
 	movement(delta)
 	move_and_slide()
-	## CODE JUST FOR DEBUGGING REMOVE THIS EVENTUALLY
-	if raycast.is_colliding():
-		var collider = raycast.get_collider()
-		if collider is GridMap:
-			var collisionPoint = raycast.get_collision_point()
-			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
-				blockChecker.position = collider.local_to_map(collisionPoint + raycast.get_collision_normal())
-				blockChecker.position +=  Vector3(0.5, 0.5, 0.5)
-			else:
-				blockChecker.position = collider.local_to_map(collisionPoint)
-				blockChecker.position += Vector3(0.5, 0.5, 0.5)
-
-
-func _on_block_checker_body_entered(body):
-	print("no")
-	canPlace = false
-	$Camera3D/MeshInstance3D.hide()
-	$Camera3D/Blocks.hide()
-
-
-func _on_block_checker_body_exited(body):
-	print("yes")
-	canPlace = true
-	$Camera3D/MeshInstance3D.show()
-	$Camera3D/Blocks.show()
