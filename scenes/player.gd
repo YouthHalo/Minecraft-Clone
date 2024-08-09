@@ -18,7 +18,7 @@ var canBreak = true
 
 @onready var camera = $Camera3D
 @onready var raycast = $Camera3D/RayCast3D
-@onready var blockChecker = $"../Block Checker"
+@onready var blockHighlight = $"../Block Select"
 
 
 func _ready():
@@ -107,15 +107,12 @@ func breakBlock():
 func buildBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if collider is GridMap:
+		if collider is GridMap and canPlace:
 			var collisionPoint = raycast.get_collision_point()
 			if collider.get_cell_item(collider.local_to_map(collisionPoint)) != -1:
-				if canPlace:
-					collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)
-				return
+				collider.set_cell_item(collider.local_to_map(collisionPoint + raycast.get_collision_normal()), blockID)	
 			else:
-				if canPlace:
-					collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
+				collider.set_cell_item(collider.local_to_map(collisionPoint), blockID)
 			if canPlace:
 				canPlace = false
 				await get_tree().create_timer(1/60).timeout
@@ -132,6 +129,23 @@ func blockHand():
 	if blockID == 3:
 		$"Camera3D/Blocks/3 - Diamond Ore".show()
 
+func blockSelector():
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is GridMap:
+			blockHighlight.show()
+			var collisionPoint = raycast.get_collision_point()
+			if collider.get_cell_item(collider.local_to_map(collisionPoint)) == -1:
+				blockHighlight.position = collider.local_to_map(collisionPoint + Vector3(-0.01 , -0.01, -0.01))
+				blockHighlight.position += Vector3(0.5, 0.5, 0.5)
+				
+			else:
+				blockHighlight.position = collider.local_to_map(collisionPoint)
+				blockHighlight.position += Vector3(0.5, 0.5, 0.5)
+	else :
+		blockHighlight.hide()
+
 func _physics_process(delta):
 	movement(delta)
 	move_and_slide()
+	blockSelector()
