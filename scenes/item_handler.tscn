@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://2v4j523hkuy4"]
+
+[ext_resource type="PackedScene" uid="uid://8hb8nhoavwut" path="res://scenes/blocks.tscn" id="1_5ycq2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hp0l"]
+
+[node name="ItemHandler" type="SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0501844, -0.0794656, -0.241667, 0.155184, 0.392009, 2.98202e-08, 0.189471, -0.300023, 0.0640091, 1.03547, -0.12, -0.87573)
+mesh = SubResource("BoxMesh_7hp0l")
+skeleton = NodePath("../..")
+
+[node name="Blocks" parent="." instance=ExtResource("1_5ycq2")]
+transform = Transform3D(0.5, -1.86266e-09, -1.49012e-08, -1.77301e-09, 0.5, 1.52701e-08, -7.45058e-09, -5.94009e-10, 0.5, 1.00248, 0.165337, -1.04436)

@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://4v22jk0e768k"]
+[gd_scene load_steps=5 format=3 uid="uid://4v22jk0e768k"]
+
+[ext_resource type="Script" path="res://scenes/ui.gd" id="1_no7us"]
+[ext_resource type="FontFile" uid="uid://ce5ibptqcf312" path="res://assets/minecraftFont.otf" id="2_74ef0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m4kd"]
 
@@ -11,8 +14,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_no7us")
 
-[node name="Crosshair" type="Panel" parent="."]
+[node name="Crosshair" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VPanel" type="Panel" parent="Crosshair"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -20,16 +29,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1.0
-offset_top = -9.0
-offset_right = 1.0
-offset_bottom = 9.0
+offset_left = 555.0
+offset_top = 295.0
+offset_right = 557.0
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_4m4kd")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel2" type="Panel" parent="Crosshair"]
+[node name="HPanel" type="Panel" parent="Crosshair/VPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,3 +52,27 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1t067")
+
+[node name="FPS Counter" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 104.0
+offset_bottom = 30.0
+theme_override_fonts/normal_font = ExtResource("2_74ef0")
+theme_override_font_sizes/normal_font_size = 18
+text = "FPS: 900"
+scroll_active = false
+
+[node name="Frame Time" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_left = 12.0
+offset_top = 30.0
+offset_right = 291.0
+offset_bottom = 48.0
+theme_override_fonts/normal_font = ExtResource("2_74ef0")
+theme_override_font_sizes/normal_font_size = 18
+text = "Frame Time: "
+scroll_active = false
