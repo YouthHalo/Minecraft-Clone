@@ -15,9 +15,9 @@ var blockID = 2
 var canPlace = true
 var canBreak = true
 
-
-@onready var camera = $Camera3D
-@onready var raycast = $Camera3D/RayCast3D
+@onready var head = $Body/Head
+@onready var camera = $Body/Head/Camera3D
+@onready var raycast = $Body/Head/Camera3D/RayCast3D
 @onready var blockHighlight = $"../Block Select"
 
 
@@ -27,10 +27,10 @@ func _ready():
 	blockHand()
 
 func hideBlocks():
-	$"Camera3D/Blocks/0 - Dirt".hide()
-	$"Camera3D/Blocks/1 - Stone".hide()
-	$"Camera3D/Blocks/2 - Cobblestone".hide()
-	$"Camera3D/Blocks/3 - Diamond Ore".hide()
+	$"Body/Head/Camera3D/Blocks/0 - Dirt".hide()
+	$"Body/Head/Camera3D/Blocks/1 - Stone".hide()
+	$"Body/Head/Camera3D/Blocks/2 - Cobblestone".hide()
+	$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".hide()
 
 func movement(delta):
 	# Add the gravity.
@@ -80,10 +80,10 @@ func _input(event):
 			rot_y = deg_to_rad(90)
 		if rot_y < deg_to_rad(-90):
 			rot_y = deg_to_rad(-90)
-		camera.transform.basis = Basis() # reset rotation
+		head.transform.basis = Basis() # reset rotation
 		transform.basis = Basis()
 		rotate_object_local(Vector3(0, 1, 0), rot_x) # rotate player in Y
-		camera.rotation.x = clamp(rot_y, deg_to_rad(-90), deg_to_rad(90))
+		head.rotation.x = clamp(rot_y, deg_to_rad(-90), deg_to_rad(90))
 
 	if Input.is_action_just_pressed("leftClick"):
 		breakBlock()
@@ -121,13 +121,13 @@ func buildBlock():
 func blockHand():
 	hideBlocks()
 	if blockID == 0:
-		$"Camera3D/Blocks/0 - Dirt".show()
+		$"Body/Head/Camera3D/Blocks/0 - Dirt".show()
 	if blockID == 1:
-		$"Camera3D/Blocks/1 - Stone".show()
+		$"Body/Head/Camera3D/Blocks/1 - Stone".show()
 	if blockID == 2:
-		$"Camera3D/Blocks/2 - Cobblestone".show()
+		$"Body/Head/Camera3D/Blocks/2 - Cobblestone".show()
 	if blockID == 3:
-		$"Camera3D/Blocks/3 - Diamond Ore".show()
+		$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".show()
 
 func blockSelector():
 	if raycast.is_colliding():
