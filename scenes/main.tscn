@@ -33,6 +33,7 @@ motion_mode = 0
 [node name="GridMap" parent="." instance=ExtResource("2_g40ro")]
 
 [node name="Block Checker" parent="." instance=ExtResource("3_iqqm5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2)
 
 [connection signal="body_entered" from="Block Checker" to="Player" method="_on_block_checker_body_entered"]
+[connection signal="body_exited" from="Block Checker" to="Player" method="_on_block_checker_body_exited"]
