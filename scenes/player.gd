@@ -53,10 +53,10 @@ func movement(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
 	if Input.is_action_just_pressed("crouch"):
-		camera.position.y = 0.495
+		head.position.y = 0.495
 		speedmulti = 0.3
 	if Input.is_action_just_released("crouch"):
-		camera.position.y = 0.62
+		head.position.y = 0.62
 		speedmulti = 1
 	
 	if Input.is_action_just_pressed("scrollUp"):
