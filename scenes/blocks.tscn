@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=15 format=3 uid="uid://8hb8nhoavwut"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
 [ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
@@ -39,6 +39,8 @@ texture_filter = 0
 [sub_resource type="BoxMesh" id="BoxMesh_6c7u2"]
 material = SubResource("StandardMaterial3D_anbhy")
 
+[sub_resource type="BoxMesh" id="BoxMesh_7u33g"]
+
 [node name="Blocks" type="Node3D"]
 
 [node name="0 - Dirt" type="MeshInstance3D" parent="."]
@@ -74,8 +76,22 @@ mesh = SubResource("BoxMesh_6c7u2")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="Block5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+mesh = SubResource("BoxMesh_7u33g")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Block5"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Block5/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Block5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0.25)
+operation = 2
+size = Vector3(1, 0.5, 0.5)
+
+[node name="Block6" type="MeshInstance3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Block6"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block6/StaticBody3D"]
 shape = SubResource("BoxShape3D_fgpph")
