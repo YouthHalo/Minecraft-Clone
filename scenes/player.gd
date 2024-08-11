@@ -31,6 +31,7 @@ func hideBlocks():
 	$"Body/Head/Camera3D/Blocks/1 - Stone".hide()
 	$"Body/Head/Camera3D/Blocks/2 - Cobblestone".hide()
 	$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".hide()
+	$"Body/Head/Camera3D/Blocks/4 - Stair".hide()
 
 func movement(delta):
 	# Add the gravity.
@@ -128,6 +129,8 @@ func blockHand():
 		$"Body/Head/Camera3D/Blocks/2 - Cobblestone".show()
 	if blockID == 3:
 		$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".show()
+	if blockID == 4:
+		$"Body/Head/Camera3D/Blocks/4 - Stair".show()
 
 func blockSelector():
 	if raycast.is_colliding():

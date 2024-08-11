@@ -35,6 +35,7 @@ fov = 90.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body/Head/Camera3D"]
 transform = Transform3D(0.0501844, -0.0794656, -0.241667, 0.155184, 0.392009, 2.98202e-08, 0.189471, -0.300023, 0.0640091, 1.03547, -0.62, -0.87573)
+cast_shadow = 0
 mesh = SubResource("BoxMesh_dk5n1")
 skeleton = NodePath("../../../..")
 
@@ -45,36 +46,36 @@ debug_shape_thickness = 5
 [node name="UI" parent="Body/Head/Camera3D" instance=ExtResource("2_841bh")]
 
 [node name="Blocks" parent="Body/Head/Camera3D" instance=ExtResource("3_mov4e")]
-transform = Transform3D(0.5, -1.86266e-09, -1.49012e-08, -1.77301e-09, 0.5, 1.52701e-08, -7.45058e-09, -5.94009e-10, 0.5, 1.00248, -0.334663, -1.04436)
+transform = Transform3D(0.5, -1.02864e-08, -7.45058e-09, 1.95228e-09, 0.5, 3.01713e-08, -7.45058e-09, -2.63932e-08, 0.5, 1.00248, -0.334663, -1.04436)
 
-[node name="body" type="MeshInstance3D" parent="Body"]
-visible = false
+[node name="Body" type="MeshInstance3D" parent="Body"]
+cast_shadow = 3
 mesh = SubResource("BoxMesh_5ljuc")
 skeleton = NodePath("../Head")
 
-[node name="limb" type="MeshInstance3D" parent="Body"]
+[node name="Left Arm" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0, 0)
-visible = false
+cast_shadow = 3
 mesh = SubResource("BoxMesh_mapiq")
 skeleton = NodePath("../..")
 
-[node name="limb2" type="MeshInstance3D" parent="Body"]
+[node name="Right Arm" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 0)
-visible = false
+cast_shadow = 3
 mesh = SubResource("BoxMesh_mapiq")
-skeleton = NodePath("../limb")
+skeleton = NodePath("../Left Arm")
 
-[node name="limb4" type="MeshInstance3D" parent="Body"]
+[node name="Left Leg" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, 0)
-visible = false
+cast_shadow = 3
 mesh = SubResource("BoxMesh_mapiq")
-skeleton = NodePath("../limb")
+skeleton = NodePath("../Left Arm")
 
-[node name="limb3" type="MeshInstance3D" parent="Body"]
+[node name="Right Leg" type="MeshInstance3D" parent="Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.75, 0)
-visible = false
+cast_shadow = 3
 mesh = SubResource("BoxMesh_mapiq")
-skeleton = NodePath("../limb")
+skeleton = NodePath("../Left Arm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
