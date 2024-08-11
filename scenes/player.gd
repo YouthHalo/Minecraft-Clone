@@ -19,6 +19,9 @@ var canBreak = true
 @onready var camera = $Body/Head/Camera3D
 @onready var raycast = $Body/Head/Camera3D/RayCast3D
 @onready var blockHighlight = $"../Block Select"
+@onready var stairStep = $"StairStep"
+
+@onready var initialSeparatopmRayDist = abs($StairStep.position.z)
 
 
 func _ready():
@@ -26,12 +29,18 @@ func _ready():
 	hideBlocks()
 	blockHand()
 
+
 func hideBlocks():
 	$"Body/Head/Camera3D/Blocks/0 - Dirt".hide()
 	$"Body/Head/Camera3D/Blocks/1 - Stone".hide()
 	$"Body/Head/Camera3D/Blocks/2 - Cobblestone".hide()
 	$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".hide()
 	$"Body/Head/Camera3D/Blocks/4 - Stair".hide()
+
+
+func rotateStepUpSeparationRay():
+	var xzVel = velocity * Vector3(1, 0, 1)
+
 
 func movement(delta):
 	# Add the gravity.
@@ -69,6 +78,11 @@ func movement(delta):
 
 
 func _input(event):
+	if is_on_floor():
+		stairStep.disabled = false
+	if not is_on_floor():
+		stairStep.disabled = true
+	
 	if position.y < -10:
 		get_tree().quit()
 

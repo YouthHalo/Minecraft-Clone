@@ -41,10 +41,10 @@ texture_filter = 0
 material = SubResource("StandardMaterial3D_anbhy")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hxqby"]
-size = Vector3(1, 0.5, 0.5)
+size = Vector3(1, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0iyn"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(1, 0.5, 0.5)
 
 [node name="Blocks" type="Node3D"]
 
@@ -92,11 +92,11 @@ skeleton = NodePath("../Block6")
 [node name="StaticBody3D" type="StaticBody3D" parent="4 - Stair"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="4 - Stair/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 shape = SubResource("BoxShape3D_hxqby")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="4 - Stair/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
 shape = SubResource("BoxShape3D_m0iyn")
 
 [node name="Block6" type="MeshInstance3D" parent="."]
