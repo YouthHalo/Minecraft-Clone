@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [display]
 
 window/stretch/aspect="ignore"
+mouse_cursor/custom_image="res://assets/cursor.png"
 window/default_gravity=22.0
 
 [input]
