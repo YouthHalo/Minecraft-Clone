@@ -14,6 +14,7 @@ var blockID = 2
 
 var canPlace = true
 var canBreak = true
+var inInventory = false
 
 @onready var head = $Body/Head
 @onready var camera = $Body/Head/Camera3D
@@ -43,38 +44,37 @@ func rotateStepUpSeparationRay():
 
 
 func movement(delta):
-	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		# Handle jump.
+		if Input.is_action_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED * speedmulti
-		velocity.z = direction.z * SPEED * speedmulti
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-	
-	if Input.is_action_just_pressed("crouch"):
-		head.position.y = 0.495
-		speedmulti = 0.3
-	if Input.is_action_just_released("crouch"):
-		head.position.y = 0.62
-		speedmulti = 1
-	
-	if Input.is_action_just_pressed("scrollUp"):
-		blockID += 1
-		blockHand()
-	if Input.is_action_just_pressed("scrollDown"):
-		blockID -= 1
-		blockHand()
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir = Input.get_vector("left", "right", "forward", "backward")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED * speedmulti
+			velocity.z = direction.z * SPEED * speedmulti
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+		if Input.is_action_just_pressed("crouch"):
+			head.position.y = 0.495
+			speedmulti = 0.3
+		if Input.is_action_just_released("crouch"):
+			head.position.y = 0.62
+			speedmulti = 1
+		
+		if Input.is_action_just_pressed("scrollUp"):
+			blockID += 1
+			blockHand()
+		if Input.is_action_just_pressed("scrollDown"):
+			blockID -= 1
+			blockHand()
 
 
 func _input(event):
@@ -101,10 +101,22 @@ func _input(event):
 		head.rotation.x = clamp(rot_y, deg_to_rad(-90), deg_to_rad(90))
 
 	if Input.is_action_just_pressed("leftClick"):
-		breakBlock()
+		if not inInventory:
+			breakBlock()
 		
 	if Input.is_action_just_pressed("rightClick"):
-		buildBlock()
+		if not inInventory:
+			buildBlock()
+	
+	if Input.is_action_just_pressed("inventory"):
+		if not inInventory:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			inInventory = true
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			inInventory = false
 
 func breakBlock():
 	if raycast.is_colliding():
