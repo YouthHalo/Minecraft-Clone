@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=26 format=3 uid="uid://8hb8nhoavwut"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
 [ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
@@ -8,14 +8,16 @@
 [ext_resource type="Texture2D" uid="uid://cewe2lncsq13f" path="res://assets/crafting_table_top.png" id="6_qp4j7"]
 [ext_resource type="Texture2D" uid="uid://bvquwasj68egy" path="res://assets/crafting_table_front.png" id="7_7akwq"]
 [ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/crafting_table_side.png" id="8_t8tse"]
+[ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/oak_planks.png" id="9_86vdq"]
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_3nwgb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
 albedo_texture = ExtResource("1_j26ju")
+metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
-material = SubResource("ORMMaterial3D_3nwgb")
+material = SubResource("StandardMaterial3D_e4gpa")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgpph"]
 
@@ -49,13 +51,81 @@ size = Vector3(1, 1, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_m0iyn"]
 size = Vector3(1, 0.5, 0.5)
 
-[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_dx81m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rl3f"]
+resource_name = "CraftingTableTop"
 albedo_texture = ExtResource("6_qp4j7")
-uv1_scale = Vector3(3, 2, 3)
+metallic = 0.5
 texture_filter = 0
 
-[sub_resource type="BoxMesh" id="BoxMesh_8xp04"]
-material = SubResource("ORMMaterial3D_dx81m")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mihhm"]
+resource_name = "CraftingTableFront"
+albedo_texture = ExtResource("7_7akwq")
+metallic = 0.5
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmgug"]
+resource_name = "CraftingTableSide"
+albedo_texture = ExtResource("8_t8tse")
+metallic = 0.5
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy1ok"]
+resource_name = "CraftingTableBottom"
+albedo_texture = ExtResource("9_86vdq")
+metallic = 0.5
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1bo2d"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(6, 0, 6, 0, 248, 255, 6, 0, 6, 0, 248, 255, 248, 255, 248, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_5rl3f"),
+"name": "CraftingTableFront",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}, {
+"aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00001, 1),
+"attribute_data": PackedByteArray(254, 255, 239, 127, 254, 255, 238, 255, 255, 127, 239, 127, 28, 128, 254, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 127, 255, 255),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0),
+"material": SubResource("StandardMaterial3D_mihhm"),
+"name": "CraftingTableSide",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 3, 128, 7, 0, 3, 128, 7, 0, 7, 128, 15, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}, {
+"aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00001, 1.00001),
+"attribute_data": PackedByteArray(255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0),
+"material": SubResource("StandardMaterial3D_tmgug"),
+"name": "CraftingTableBottom",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 0, 128, 254, 255, 0, 0, 254, 255, 0, 128, 0, 0, 254, 255, 254, 255, 0, 128, 0, 0, 0, 0, 254, 255, 0, 128, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}, {
+"aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_yy1ok"),
+"name": "Cube",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 254, 255, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 84, 213, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85)
+}]
+blend_shape_mode = 0
 
 [node name="Blocks" type="Node3D"]
 
@@ -113,37 +183,9 @@ shape = SubResource("BoxShape3D_m0iyn")
 [node name="5 - Crafting Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cast_shadow = 0
-mesh = SubResource("BoxMesh_8xp04")
+mesh = SubResource("ArrayMesh_1bo2d")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="5 - Crafting Table"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="5 - Crafting Table/StaticBody3D"]
 shape = SubResource("BoxShape3D_fgpph")
-
-[node name="Sprite3D" type="Sprite3D" parent="5 - Crafting Table"]
-transform = Transform3D(0.620337, 0, 0, 0, 0.620337, 0, 0, 0, 1.0339, 0, 0, 0.501)
-transparent = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("7_7akwq")
-
-[node name="Sprite3D2" type="Sprite3D" parent="5 - Crafting Table"]
-transform = Transform3D(-0.620337, 0, -9.0386e-08, 0, 0.620337, 0, 5.42316e-08, 0, -1.0339, 0, 0, -0.501)
-transparent = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("7_7akwq")
-
-[node name="Sprite3D3" type="Sprite3D" parent="5 - Crafting Table"]
-transform = Transform3D(-2.71158e-08, 0, 1.0339, 0, 0.620337, 0, -0.620337, 0, -4.5193e-08, 0.501, 0, 0)
-transparent = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("8_t8tse")
-
-[node name="Sprite3D4" type="Sprite3D" parent="5 - Crafting Table"]
-transform = Transform3D(-2.71158e-08, 0, -1.0339, 0, 0.620337, 0, 0.620337, 0, -4.5193e-08, -0.501, 0, 0)
-transparent = false
-shaded = true
-texture_filter = 0
-texture = ExtResource("8_t8tse")
