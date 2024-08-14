@@ -45,3 +45,10 @@ func _process(delta):
 func _on_main_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+
+
+func _on_resume_pressed():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pauseMenu.hide()
+	get_tree().paused = false
+	paused = false

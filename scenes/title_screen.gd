@@ -11,19 +11,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if splash.scale < Vector2(1.2, 1.2) and grow:
-		if splash.scale == Vector2(1.2, 1.2):
-			print("GROWSTOP")
-			grow = false
+	if splash.scale < Vector2(1.05, 1.05) and grow:
+		splash.scale += Vector2(0.005, 0.005)
+		
+	if splash.scale == Vector2(1.05, 1.05) and grow:
+		grow = false
 
-		splash.scale += Vector2(0.01, 0.01)
-		print(splash.scale)
+	if splash.scale > Vector2(0.95, 0.95) and not grow:
+		splash.scale -= Vector2(0.005, 0.005)
 
-	if splash.scale > Vector2(0.75, 0.75) and not grow:
-		splash.scale -= Vector2(0.05, 0.05)
-		if splash.scale == Vector2(0.8, 0.8):
-			grow = true
-			print("GROWSTART")
+	if splash.scale < Vector2(0.95, 0.95) and not grow:
+		await get_tree().create_timer(0.05).timeout
+		grow = true
+
 
 func _on_quit_pressed():
 	get_tree().quit()
