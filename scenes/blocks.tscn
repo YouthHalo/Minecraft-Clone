@@ -130,6 +130,7 @@ blend_shape_mode = 0
 [node name="Blocks" type="Node3D"]
 
 [node name="0 - Dirt" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("BoxMesh_bwjug")
 
@@ -139,6 +140,7 @@ mesh = SubResource("BoxMesh_bwjug")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="1 - Stone" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("BoxMesh_wgphs")
 
@@ -148,6 +150,7 @@ mesh = SubResource("BoxMesh_wgphs")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="2 - Cobblestone" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("BoxMesh_qkcne")
 
@@ -157,6 +160,7 @@ mesh = SubResource("BoxMesh_qkcne")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="3 - Diamond Ore" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = SubResource("BoxMesh_6c7u2")
 
@@ -166,6 +170,7 @@ mesh = SubResource("BoxMesh_6c7u2")
 shape = SubResource("BoxShape3D_fgpph")
 
 [node name="4 - Stair" type="MeshInstance3D" parent="."]
+visible = false
 cast_shadow = 0
 mesh = ExtResource("5_na0in")
 skeleton = NodePath("")
@@ -181,7 +186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.25)
 shape = SubResource("BoxShape3D_m0iyn")
 
 [node name="5 - Crafting Table" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_1bo2d")
 

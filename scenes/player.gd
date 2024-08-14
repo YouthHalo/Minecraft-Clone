@@ -27,16 +27,8 @@ var inInventory = false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	hideBlocks()
+	$Body/Head/Camera3D/MeshInstance3D/GridMap.set_cell_item(Vector3(0,0,0), blockID)
 	blockHand()
-
-
-func hideBlocks():
-	$"Body/Head/Camera3D/Blocks/0 - Dirt".hide()
-	$"Body/Head/Camera3D/Blocks/1 - Stone".hide()
-	$"Body/Head/Camera3D/Blocks/2 - Cobblestone".hide()
-	$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".hide()
-	$"Body/Head/Camera3D/Blocks/4 - Stair".hide()
 
 
 func rotateStepUpSeparationRay():
@@ -146,17 +138,7 @@ func buildBlock():
 				canPlace = true
 
 func blockHand():
-	hideBlocks()
-	if blockID == 0:
-		$"Body/Head/Camera3D/Blocks/0 - Dirt".show()
-	if blockID == 1:
-		$"Body/Head/Camera3D/Blocks/1 - Stone".show()
-	if blockID == 2:
-		$"Body/Head/Camera3D/Blocks/2 - Cobblestone".show()
-	if blockID == 3:
-		$"Body/Head/Camera3D/Blocks/3 - Diamond Ore".show()
-	if blockID == 4:
-		$"Body/Head/Camera3D/Blocks/4 - Stair".show()
+	$Body/Head/Camera3D/MeshInstance3D/GridMap.set_cell_item(Vector3(0,0,0), blockID)
 
 func blockSelector():
 	if raycast.is_colliding():
