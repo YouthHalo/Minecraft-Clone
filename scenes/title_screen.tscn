@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://doe0g453yxsyc"]
+[gd_scene load_steps=5 format=3 uid="uid://doe0g453yxsyc"]
 
 [ext_resource type="FontFile" uid="uid://ce5ibptqcf312" path="res://assets/minecraftFont.otf" id="1_bu6xt"]
 [ext_resource type="Texture2D" uid="uid://l8nr4a5mom0e" path="res://assets/title.png" id="1_nfucb"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_nq06s"]
+[ext_resource type="AudioStream" uid="uid://din6tg6rfat3s" path="res://assets/moog_city_2.mp3" id="4_0p8r5"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -64,6 +65,26 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_nfucb")
 expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_0p8r5")
+autoplay = true
+
+[node name="SplashText" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 680.0
+offset_top = 257.0
+offset_right = 1100.0
+offset_bottom = 297.0
+rotation = -0.2875
+theme_override_colors/default_color = Color(1, 1, 0.333333, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_bu6xt")
+theme_override_font_sizes/normal_font_size = 36
+text = "Open Source Rules!"
+autowrap_mode = 0
+shortcut_keys_enabled = false
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
