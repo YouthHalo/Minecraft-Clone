@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Minecraft Clone"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=3
 window/stretch/aspect="ignore"
 mouse_cursor/custom_image="res://assets/cursor.png"
 window/default_gravity=22.0

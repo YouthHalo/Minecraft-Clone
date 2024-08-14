@@ -128,7 +128,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Quit" type="Button" parent="Pause Menu"]
+[node name="Main Menu" type="Button" parent="Pause Menu"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -144,6 +144,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_74ef0")
 theme_override_font_sizes/font_size = 36
-text = "Quit Game"
+text = "Quit to Menu"
 
-[connection signal="pressed" from="Pause Menu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Pause Menu/Main Menu" to="." method="_on_main_menu_pressed"]

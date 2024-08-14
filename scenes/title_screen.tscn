@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://doe0g453yxsyc"]
+[gd_scene load_steps=4 format=3 uid="uid://doe0g453yxsyc"]
 
+[ext_resource type="FontFile" uid="uid://ce5ibptqcf312" path="res://assets/minecraftFont.otf" id="1_bu6xt"]
 [ext_resource type="Texture2D" uid="uid://l8nr4a5mom0e" path="res://assets/title.png" id="1_nfucb"]
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_nq06s"]
 
 [node name="Title Screen" type="Control"]
 layout_mode = 3
@@ -9,6 +11,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nq06s")
+
+[node name="Quit" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = 196.5
+offset_right = 205.5
+offset_bottom = 265.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bu6xt")
+theme_override_font_sizes/font_size = 36
+text = "Quit Game"
+
+[node name="Play" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = 35.0
+offset_right = 205.5
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bu6xt")
+theme_override_font_sizes/font_size = 36
+text = "Play Singleplayer"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -17,11 +56,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -518.0
-offset_top = -276.0
-offset_right = 1530.0
-offset_bottom = 77.0
+offset_left = -515.0
+offset_top = -263.0
+offset_right = 515.0
+offset_bottom = -85.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_nfucb")
+expand_mode = 1
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
