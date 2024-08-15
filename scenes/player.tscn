@@ -87,9 +87,11 @@ skeleton = NodePath("../Left Arm")
 shape = SubResource("BoxShape3D_bejbg")
 
 [node name="StairBehindRaycast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.937081, 0)
 target_position = Vector3(0, -0.75, 0)
 
 [node name="StairAheadRayCast3D" type="RayCast3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437, -1)
 target_position = Vector3(0, -0.55, 0)

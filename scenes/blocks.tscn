@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://8hb8nhoavwut"]
+[gd_scene load_steps=26 format=4 uid="uid://8hb8nhoavwut"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
 [ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
@@ -81,52 +81,52 @@ texture_filter = 0
 [sub_resource type="ArrayMesh" id="ArrayMesh_1bo2d"]
 _surfaces = [{
 "aabb": AABB(-0.5, 0.5, -0.5, 1, 1.00136e-05, 1),
-"attribute_data": PackedByteArray(6, 0, 6, 0, 248, 255, 6, 0, 6, 0, 248, 255, 248, 255, 248, 255),
+"attribute_data": PackedByteArray("BgAGAPj/BgAGAPj/+P/4/w=="),
 "format": 34896613399,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
 "material": SubResource("StandardMaterial3D_5rl3f"),
 "name": "CraftingTableFront",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+"vertex_data": PackedByteArray("AAAAAAAA/7///wAAAAD/vwAAAAD///+///8AAP///7////9/////f////3////9/")
 }, {
 "aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00001, 1),
-"attribute_data": PackedByteArray(254, 255, 239, 127, 254, 255, 238, 255, 255, 127, 239, 127, 28, 128, 254, 255, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 127, 255, 127, 255, 255),
+"attribute_data": PackedByteArray("/v/vf/7/7v//f+9/HID+/////3///////3//f/9///8="),
 "format": 34896613399,
 "index_count": 12,
-"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcA"),
 "material": SubResource("StandardMaterial3D_mihhm"),
 "name": "CraftingTableSide",
 "primitive": 3,
 "uv_scale": Vector4(2, 2, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(254, 255, 254, 255, 0, 0, 255, 191, 254, 255, 0, 0, 0, 0, 255, 191, 254, 255, 254, 255, 255, 255, 255, 191, 254, 255, 0, 0, 255, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 254, 255, 254, 255, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 3, 128, 7, 0, 3, 128, 7, 0, 7, 128, 15, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+"vertex_data": PackedByteArray("/v/+/wAA/7/+/wAAAAD/v/7//v////+//v8AAP///78AAP7/AAD//wAAAAAAAP///v/+/wAA///+/wAAAAD///9/AAADgAcAA4AHAAeADwD/f////3////9/////f///")
 }, {
 "aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00001, 1.00001),
-"attribute_data": PackedByteArray(255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255),
+"attribute_data": PackedByteArray("//8AAP////8AAAAAAAD/////AAD/////AAAAAAAA//8="),
 "format": 34896613399,
 "index_count": 12,
-"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0),
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcA"),
 "material": SubResource("StandardMaterial3D_tmgug"),
 "name": "CraftingTableBottom",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(254, 255, 254, 255, 254, 255, 0, 128, 254, 255, 0, 0, 254, 255, 0, 128, 0, 0, 254, 255, 254, 255, 0, 128, 0, 0, 0, 0, 254, 255, 0, 128, 0, 0, 254, 255, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 254, 255, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+"vertex_data": PackedByteArray("/v/+//7/AID+/wAA/v8AgAAA/v/+/wCAAAAAAP7/AIAAAP7//v//vwAAAAD+//+/AAD+/wAA/78AAAAAAAD/v/9/////f////3////9/////f////3////9/////f///")
 }, {
 "aabb": AABB(-0.5, -0.5, -0.5, 1.00001, 1.00136e-05, 1),
-"attribute_data": PackedByteArray(255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255),
+"attribute_data": PackedByteArray("//8AAP////8AAAAAAAD//w=="),
 "format": 34896613399,
 "index_count": 6,
-"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0),
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
 "material": SubResource("StandardMaterial3D_yy1ok"),
 "name": "Cube",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
-"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 254, 255, 0, 0, 255, 255, 84, 213, 0, 0, 0, 0, 255, 255, 84, 213, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85, 84, 85)
+"vertex_data": PackedByteArray("/v8AAAAAVNUAAAAAAABU1f7/AAD//1TVAAAAAP//VNVUVVRVVFVUVVRVVFVUVVRV")
 }]
 blend_shape_mode = 0
 

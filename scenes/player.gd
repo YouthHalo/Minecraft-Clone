@@ -29,6 +29,9 @@ func _ready():
 	blockHand()
 
 
+func is_surface_too_steep(normal: Vector3) -> bool:
+	return normal.angle_to(Vector3.UP) > self.floor_max_angle
+
 func movement(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
