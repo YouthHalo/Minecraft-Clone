@@ -22,17 +22,11 @@ var inInventory = false
 @onready var blockHighlight = $"../Block Select"
 @onready var stairStep = $"StairStep"
 
-@onready var initialSeparatopmRayDist = abs($StairStep.position.z)
-
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Body/Head/Camera3D/MeshInstance3D/GridMap.set_cell_item(Vector3(0,0,0), blockID)
 	blockHand()
-
-
-func rotateStepUpSeparationRay():
-	var xzVel = velocity * Vector3(1, 0, 1)
 
 
 func movement(delta):
@@ -70,11 +64,6 @@ func movement(delta):
 
 
 func _input(event):
-	if is_on_floor():
-		stairStep.disabled = false
-	if not is_on_floor():
-		stairStep.disabled = true
-	
 	if position.y < -10:
 		get_tree().quit()
 

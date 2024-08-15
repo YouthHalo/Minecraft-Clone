@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://4v22jk0e768k"]
+[gd_scene load_steps=6 format=3 uid="uid://4v22jk0e768k"]
 
 [ext_resource type="Script" path="res://scenes/ui.gd" id="1_no7us"]
 [ext_resource type="FontFile" uid="uid://ce5ibptqcf312" path="res://assets/minecraftFont.otf" id="2_74ef0"]
+[ext_resource type="AudioStream" uid="uid://bfnttn7t38s1d" path="res://assets/click.ogg" id="3_q0g0f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4m4kd"]
 
@@ -163,6 +164,9 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_74ef0")
 theme_override_font_sizes/font_size = 36
 text = "Quit to Menu"
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q0g0f")
 
 [connection signal="pressed" from="Pause Menu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Pause Menu/Main Menu" to="." method="_on_main_menu_pressed"]

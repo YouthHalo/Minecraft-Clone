@@ -44,10 +44,13 @@ func _process(delta):
 
 func _on_main_menu_pressed():
 	get_tree().paused = false
+	$Click.play()
+	await get_tree().create_timer(1/30).timeout
 	get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
 
 
 func _on_resume_pressed():
+	$Click.play()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	pauseMenu.hide()
 	get_tree().paused = false
