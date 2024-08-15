@@ -110,6 +110,7 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			inInventory = false
 
+
 func breakBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()

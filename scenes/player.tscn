@@ -89,8 +89,6 @@ skeleton = NodePath("../Left Arm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-
 [node name="StairStep" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.469, -0.4)
 shape = SubResource("SeparationRayShape3D_p0go7")

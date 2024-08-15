@@ -26,9 +26,8 @@ func _process(delta):
 
 
 func _on_quit_pressed():
-	$Click.play()
-	await get_tree().create_timer(1/60).timeout
 	get_tree().quit()
+	#cant get the click to play sadly :/
 
 func _on_play_pressed():
 	$Click.play()
