@@ -26,7 +26,11 @@ func _process(delta):
 
 
 func _on_quit_pressed():
+	$Click.play()
+	await get_tree().create_timer(1/60).timeout
 	get_tree().quit()
 
 func _on_play_pressed():
+	$Click.play()
+	await get_tree().create_timer(1/60).timeout
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
