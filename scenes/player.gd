@@ -49,6 +49,26 @@ func snap_down_to_stairs_check() -> void:
 	snappedToStairsLastFrame = didSnap
 
 
+func snap_up_stairs_check(delta) -> bool:
+	if not is_on_floor() and not snappedToStairsLastFrame:
+		return false
+	var expectedMoveMotion = self.velocity * Vector3(1, 0, 1) * delta
+	var stepPosWithClearance = self.global_transform.translated(expectedMoveMotion + Vector3(0, MAX_STEP_HEIGHT * 2, 0))
+	
+	var downCheckResult = PhysicsTestMotionResult3D.new()
+	if (run_body_test_motion(stepPosWithClearance, Vector3(0, -MAX_STEP_HEIGHT * 2, 0), downCheckResult) and (downCheckResult.get_collider().is_class("GridMap"))):
+		var stepHeight = ((stepPosWithClearance.origin + downCheckResult.get_travel()) - self.global_position).y
+		if stepHeight > MAX_STEP_HEIGHT or stepHeight <= 0.01 or (downCheckResult.get_collision_point() - self.global_position).y > MAX_STEP_HEIGHT:
+			return false
+		$StairAheadRayCast3D.global_position = downCheckResult.get_collision_point() + Vector3(0, MAX_STEP_HEIGHT, 0) + expectedMoveMotion.normalized() * 0.1
+		$StairAheadRayCast3D.force_raycast_update()
+		if $StairAheadRayCast3D.is_colliding() and not is_surface_too_steep($StairAheadRayCast3D.get_collision_normal()):
+			self.global_position = stepPosWithClearance.origin + downCheckResult.get_travel()
+			apply_floor_snap()
+			snappedToStairsLastFrame = true
+			return true
+	return false
+
 func stairs():
 	if is_on_floor():
 		lastFrameWasOnFloor = Engine.get_physics_frames()
@@ -68,7 +88,7 @@ func movement(delta):
 		velocity.y -= gravity * delta
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# Handle jump.
-		if Input.is_action_pressed("jump") and is_on_floor():
+		if Input.is_action_pressed("jump") and (is_on_floor() or snappedToStairsLastFrame):
 			velocity.y = JUMP_VELOCITY
 
 		# Get the input direction and handle the movement/deceleration.
@@ -187,7 +207,8 @@ func blockSelector():
 func _physics_process(delta):
 	stairs()
 	movement(delta)
-	move_and_slide()
-	snap_down_to_stairs_check()
+	if not snap_up_stairs_check(delta):
+		move_and_slide()
+		snap_down_to_stairs_check()
 	blockSelector()
 	
