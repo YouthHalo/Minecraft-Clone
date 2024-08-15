@@ -32,6 +32,14 @@ func _ready():
 func is_surface_too_steep(normal: Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 
+
+func _run_body_test_motion(from: Transform3D, motion: Vector3, result = null) -> bool:
+	if not result:
+		result = PhysicsTestMotionResult3D.new()
+	var params = PhysicsTestMotionParameters3D.new()
+	params.from = from
+	params.motion = motion
+
 func movement(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta

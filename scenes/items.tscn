@@ -4,6 +4,7 @@
 transform_format = 1
 
 [node name="Items" type="Node3D"]
+visible = false
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
 multimesh = SubResource("MultiMesh_paj1c")
