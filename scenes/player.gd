@@ -1,20 +1,23 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+const SPEED = 6.0
 const JUMP_VELOCITY = 6.5
+const MAX_STEP_HEIGHT = 0.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var mouse_sens = 0.005
-var speedmulti = 1
+var mouseSens = 0.005
+var speedMulti = 1
 var health = 100
-var rot_x = 0
-var rot_y = 0
+var rotX = 0
+var rotY = 0
 var blockID = 2
-
 var canPlace = true
 var canBreak = true
 var inInventory = false
+
+var snappedToStairsLastFrame:= false
+var lastFrameWasOnFloor = -INF
 
 @onready var head = $Body/Head
 @onready var camera = $Body/Head/Camera3D
@@ -32,13 +35,33 @@ func _ready():
 func is_surface_too_steep(normal: Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 
+func snap_down_to_stairs_check() -> void:
+	var didSnap:= false
+	var floorBelow : bool = $StairBelowRaycast3D.is_colliding() and not is_surface_too_steep($StairAheadRayCast3D.get_collision_normal())
+	var wasOnFloorLastFrame = Engine.get_physics_frames() - lastFrameWasOnFloor == 1
+	if not is_on_floor() and velocity.y <=0 and (wasOnFloorLastFrame or snappedToStairsLastFrame) and floorBelow:
+		var bodyTestResult = PhysicsTestMotionResult3D.new()
+		if run_body_test_motion(self.global_transform, Vector3(0, -MAX_STEP_HEIGHT, 0), bodyTestResult):
+			var translateY = bodyTestResult.get_travel().y
+			self.position.y += translateY
+			apply_floor_snap()
+			didSnap = true
+	snappedToStairsLastFrame = didSnap
 
-func _run_body_test_motion(from: Transform3D, motion: Vector3, result = null) -> bool:
+
+func stairs():
+	if is_on_floor():
+		lastFrameWasOnFloor = Engine.get_physics_frames()
+
+
+func run_body_test_motion(from: Transform3D, motion: Vector3, result = null) -> bool:
 	if not result:
 		result = PhysicsTestMotionResult3D.new()
 	var params = PhysicsTestMotionParameters3D.new()
 	params.from = from
 	params.motion = motion
+	return PhysicsServer3D.body_test_motion(self.get_rid(), params, result)
+
 
 func movement(delta):
 	if not is_on_floor():
@@ -53,18 +76,18 @@ func movement(delta):
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			velocity.x = direction.x * SPEED * speedmulti
-			velocity.z = direction.z * SPEED * speedmulti
+			velocity.x = direction.x * SPEED * speedMulti
+			velocity.z = direction.z * SPEED * speedMulti
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 		if Input.is_action_just_pressed("crouch"):
 			head.position.y = 0.495
-			speedmulti = 0.3
+			speedMulti = 0.3
 		if Input.is_action_just_released("crouch"):
 			head.position.y = 0.62
-			speedmulti = 1
+			speedMulti = 1
 		
 		if Input.is_action_just_pressed("scrollUp"):
 			blockID += 1
@@ -80,17 +103,17 @@ func _input(event):
 
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# modify accumulated mouse rotation
-		rot_x += -(event.relative.x * mouse_sens)
-		rot_y += -(event.relative.y * mouse_sens)
+		rotX += -(event.relative.x * mouseSens)
+		rotY += -(event.relative.y * mouseSens)
 		
-		if rot_y > deg_to_rad(90):
-			rot_y = deg_to_rad(90)
-		if rot_y < deg_to_rad(-90):
-			rot_y = deg_to_rad(-90)
+		if rotY > deg_to_rad(90):
+			rotY = deg_to_rad(90)
+		if rotY < deg_to_rad(-90):
+			rotY = deg_to_rad(-90)
 		head.transform.basis = Basis() # reset rotation
 		transform.basis = Basis()
-		rotate_object_local(Vector3(0, 1, 0), rot_x) # rotate player in Y
-		head.rotation.x = clamp(rot_y, deg_to_rad(-90), deg_to_rad(90))
+		rotate_object_local(Vector3(0, 1, 0), rotX) # rotate player in Y
+		head.rotation.x = clamp(rotY, deg_to_rad(-90), deg_to_rad(90))
 
 	if Input.is_action_just_pressed("leftClick"):
 		if not inInventory:
@@ -124,6 +147,7 @@ func breakBlock():
 			await get_tree().create_timer(0.0166666666667).timeout
 			canBreak = true
 
+
 func buildBlock():
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
@@ -138,8 +162,10 @@ func buildBlock():
 				await get_tree().create_timer(1/60).timeout
 				canPlace = true
 
+
 func blockHand():
 	$Body/Head/Camera3D/MeshInstance3D/GridMap.set_cell_item(Vector3(0,0,0), blockID)
+
 
 func blockSelector():
 	if raycast.is_colliding():
@@ -157,7 +183,11 @@ func blockSelector():
 	else :
 		blockHighlight.hide()
 
+
 func _physics_process(delta):
+	stairs()
 	movement(delta)
 	move_and_slide()
+	snap_down_to_stairs_check()
 	blockSelector()
+	

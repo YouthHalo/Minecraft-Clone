@@ -86,12 +86,10 @@ skeleton = NodePath("../Left Arm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_bejbg")
 
-[node name="StairBehindRaycast3D" type="RayCast3D" parent="."]
-unique_name_in_owner = true
+[node name="StairBelowRaycast3D" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.937081, 0)
 target_position = Vector3(0, -0.75, 0)
 
 [node name="StairAheadRayCast3D" type="RayCast3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437, -0.4)
 target_position = Vector3(0, -0.55, 0)
