@@ -35,6 +35,7 @@ func _ready():
 func is_surface_too_steep(normal: Vector3) -> bool:
 	return normal.angle_to(Vector3.UP) > self.floor_max_angle
 
+
 func snap_down_to_stairs_check() -> void:
 	var didSnap:= false
 	var floorBelow : bool = $StairBelowRaycast3D.is_colliding() and not is_surface_too_steep($StairAheadRayCast3D.get_collision_normal())
@@ -68,6 +69,7 @@ func snap_up_stairs_check(delta) -> bool:
 			snappedToStairsLastFrame = true
 			return true
 	return false
+
 
 func stairs():
 	if is_on_floor():
@@ -211,4 +213,3 @@ func _physics_process(delta):
 		move_and_slide()
 		snap_down_to_stairs_check()
 	blockSelector()
-	
