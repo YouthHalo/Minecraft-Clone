@@ -122,7 +122,6 @@ offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ejgln")
-stretch_mode = 5
 
 [node name="Pause Menu" type="Panel" parent="."]
 top_level = true
