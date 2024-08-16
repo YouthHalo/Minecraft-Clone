@@ -1,3 +1,98 @@
-[gd_scene format=3 uid="uid://t5jt0blykaw4"]
+[gd_scene load_steps=2 format=3 uid="uid://t5jt0blykaw4"]
+
+[ext_resource type="ArrayMesh" uid="uid://mhwtndv1xsek" path="res://assets/craftingTable.obj" id="1_2udxv"]
 
 [node name="NewLevel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_2udxv")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = ExtResource("1_2udxv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
