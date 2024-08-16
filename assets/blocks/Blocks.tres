@@ -1,16 +1,16 @@
 [gd_resource type="MeshLibrary" load_steps=38 format=4 uid="uid://bv18g676j3e3a"]
 
-[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/blocks/textures/dirt.png" id="1_c332a"]
-[ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/blocks/textures/stone.png" id="2_ptpkf"]
-[ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/blocks/textures/cobblestone.png" id="3_ef573"]
-[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/blocks/textures/diamond_ore.png" id="4_xyy4w"]
-[ext_resource type="Texture2D" uid="uid://cewe2lncsq13f" path="res://assets/blocks/textures/crafting_table_top.png" id="5_ncvb4"]
-[ext_resource type="Texture2D" uid="uid://bvquwasj68egy" path="res://assets/blocks/textures/crafting_table_front.png" id="6_enb5b"]
-[ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/blocks/textures/crafting_table_side.png" id="7_xghrs"]
-[ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/blocks/textures/oak_planks.png" id="8_tb1gh"]
+[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/blocks/textures/dirt.png" id="1_t5q4k"]
+[ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/blocks/textures/stone.png" id="2_od1ao"]
+[ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/blocks/textures/cobblestone.png" id="3_gccfx"]
+[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/blocks/textures/diamond_ore.png" id="4_0scmm"]
+[ext_resource type="Texture2D" uid="uid://cewe2lncsq13f" path="res://assets/blocks/textures/crafting_table_top.png" id="5_uuvu1"]
+[ext_resource type="Texture2D" uid="uid://bvquwasj68egy" path="res://assets/blocks/textures/crafting_table_front.png" id="6_1thlj"]
+[ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/blocks/textures/crafting_table_side.png" id="7_cmww5"]
+[ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/blocks/textures/oak_planks.png" id="8_goinu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
-albedo_texture = ExtResource("1_c332a")
+albedo_texture = ExtResource("1_t5q4k")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
@@ -33,7 +33,7 @@ image = SubResource("Image_nb7si")
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgpph"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2l4v"]
-albedo_texture = ExtResource("2_ptpkf")
+albedo_texture = ExtResource("2_od1ao")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
@@ -54,7 +54,7 @@ data = {
 image = SubResource("Image_4kylp")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q20be"]
-albedo_texture = ExtResource("3_ef573")
+albedo_texture = ExtResource("3_gccfx")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
@@ -75,7 +75,7 @@ data = {
 image = SubResource("Image_lgx2r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_anbhy"]
-albedo_texture = ExtResource("4_xyy4w")
+albedo_texture = ExtResource("4_0scmm")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
@@ -141,25 +141,25 @@ size = Vector3(1, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rl3f"]
 resource_name = "CraftingTableTop"
-albedo_texture = ExtResource("5_ncvb4")
+albedo_texture = ExtResource("5_uuvu1")
 metallic = 0.5
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mihhm"]
 resource_name = "CraftingTableFront"
-albedo_texture = ExtResource("6_enb5b")
+albedo_texture = ExtResource("6_1thlj")
 metallic = 0.5
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmgug"]
 resource_name = "CraftingTableSide"
-albedo_texture = ExtResource("7_xghrs")
+albedo_texture = ExtResource("7_cmww5")
 metallic = 0.5
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yy1ok"]
 resource_name = "CraftingTableBottom"
-albedo_texture = ExtResource("8_tb1gh")
+albedo_texture = ExtResource("8_goinu")
 metallic = 0.5
 texture_filter = 0
 

@@ -8,6 +8,7 @@ shading_mode = 0
 albedo_texture = ExtResource("1_iqp2h")
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
+grow_amount = -6.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_vw6oc"]
 material = SubResource("StandardMaterial3D_ioo11")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbv6dt16s1u6w"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_m7xfk"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_m7xfk"]
 [ext_resource type="MeshLibrary" uid="uid://bv18g676j3e3a" path="res://assets/blocks/Blocks.tres" id="2_4hshb"]
 [ext_resource type="PackedScene" uid="uid://4v22jk0e768k" path="res://scenes/ui.tscn" id="2_841bh"]
 

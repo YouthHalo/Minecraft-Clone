@@ -191,3 +191,13 @@ mesh = SubResource("ArrayMesh_1bo2d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="5 - Crafting Table/StaticBody3D"]
 shape = SubResource("BoxShape3D_fgpph")
+
+[node name="5 - Crafting Table2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+cast_shadow = 0
+mesh = SubResource("ArrayMesh_1bo2d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="5 - Crafting Table2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="5 - Crafting Table2/StaticBody3D"]
+shape = SubResource("BoxShape3D_fgpph")

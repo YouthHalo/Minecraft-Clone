@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
-mouse_cursor/custom_image="res://assets/cursor.png"
+mouse_cursor/custom_image="res://assets/misc/cursor.png"
 window/default_gravity=22.0
 
 [input]
