@@ -1,14 +1,14 @@
 [gd_scene load_steps=26 format=4 uid="uid://8hb8nhoavwut"]
 
-[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/dirt.png" id="1_j26ju"]
-[ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/stone.png" id="2_j3n7k"]
-[ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/cobblestone.png" id="3_0pooe"]
-[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/diamond_ore.png" id="4_5y11v"]
-[ext_resource type="ArrayMesh" uid="uid://vxpbfd4s68rb" path="res://assets/stair.obj" id="5_na0in"]
-[ext_resource type="Texture2D" uid="uid://cewe2lncsq13f" path="res://assets/crafting_table_top.png" id="6_qp4j7"]
-[ext_resource type="Texture2D" uid="uid://bvquwasj68egy" path="res://assets/crafting_table_front.png" id="7_7akwq"]
-[ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/crafting_table_side.png" id="8_t8tse"]
-[ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/oak_planks.png" id="9_86vdq"]
+[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/blocks/textures/dirt.png" id="1_j26ju"]
+[ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/blocks/textures/stone.png" id="2_j3n7k"]
+[ext_resource type="Texture2D" uid="uid://c74u1uj7c67qm" path="res://assets/blocks/textures/cobblestone.png" id="3_0pooe"]
+[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/blocks/textures/diamond_ore.png" id="4_5y11v"]
+[ext_resource type="ArrayMesh" uid="uid://vxpbfd4s68rb" path="res://assets/blocks/stair.obj" id="5_na0in"]
+[ext_resource type="Texture2D" uid="uid://cewe2lncsq13f" path="res://assets/blocks/textures/crafting_table_top.png" id="6_qp4j7"]
+[ext_resource type="Texture2D" uid="uid://bvquwasj68egy" path="res://assets/blocks/textures/crafting_table_front.png" id="7_7akwq"]
+[ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/blocks/textures/crafting_table_side.png" id="8_t8tse"]
+[ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/blocks/textures/oak_planks.png" id="9_86vdq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
 albedo_texture = ExtResource("1_j26ju")

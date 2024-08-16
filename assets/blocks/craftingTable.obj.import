@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://mhwtndv1xsek"
+path="res://.godot/imported/craftingTable.obj-def38bc628c2651a572003a8a2b99138.mesh"
+
+[deps]
+
+files=["res://.godot/imported/craftingTable.obj-def38bc628c2651a572003a8a2b99138.mesh"]
+
+source_file="res://assets/blocks/craftingTable.obj"
+dest_files=["res://.godot/imported/craftingTable.obj-def38bc628c2651a572003a8a2b99138.mesh", "res://.godot/imported/craftingTable.obj-def38bc628c2651a572003a8a2b99138.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
