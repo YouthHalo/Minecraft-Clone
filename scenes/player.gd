@@ -28,6 +28,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Body/Head/Camera3D/MeshInstance3D/GridMap.set_cell_item(Vector3(0,0,0), blockID)
 	blockHand()
+	RenderingServer.set_debug_generate_wireframes(true)
 
 
 func is_surface_too_steep(normal: Vector3) -> bool:
@@ -120,8 +121,9 @@ func movement(delta):
 
 
 func _input(event):
-	if position.y < -10:
-		get_tree().quit()
+	if event is InputEventKey and Input.is_key_pressed(KEY_P):
+		var vp = get_viewport()
+		vp.debug_draw = (vp.debug_draw + 1 ) % 5
 
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# modify accumulated mouse rotation
