@@ -23,8 +23,6 @@ var lastFrameWasOnFloor = -INF
 @onready var camera = $Body/Head/Camera3D
 @onready var raycast = $Body/Head/Camera3D/RayCast3D
 @onready var blockHighlight = $"../Block Select"
-@onready var stairStep = $"StairStep"
-
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -97,6 +95,8 @@ func movement(delta):
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if inInventory:
+			direction = 0
 		if direction:
 			velocity.x = direction.x * SPEED * speedMulti
 			velocity.z = direction.z * SPEED * speedMulti
@@ -147,6 +147,8 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("inventory"):
 		if not inInventory:
+			velocity.x = 0
+			velocity.z = 0
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			inInventory = true
 			velocity.x = move_toward(velocity.x, 0, SPEED)
