@@ -6,7 +6,7 @@ var dirt = preload("res://scenes/blocks/dirt.tscn")
 @onready var camera = $TestCamera/Camera3D
 # Called when the node enters the scene tree for the first time.
 
-var plane_size = 100
+var plane_size = 128
 var block_size = 1.0
 var mouseSens = 0.005
 var Y=0
@@ -17,11 +17,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(Engine.get_frames_per_second())
+	$RichTextLabel.text = "FPS: " + str(Engine.get_frames_per_second())
 	
 func _input(event):
 	if event is InputEventKey and Input.is_key_pressed(KEY_T):
 		generate_planes2()
+		$OccluderInstance3D.position.x += 0.1
 	
 func generate_planes() -> void:
 	for x in plane_size:

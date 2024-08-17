@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c050ao5aowhnh"]
+[gd_scene load_steps=6 format=3 uid="uid://c050ao5aowhnh"]
 
 [ext_resource type="Script" path="res://scripts/terrain_gen.gd" id="1_5y5x3"]
 [ext_resource type="Script" path="res://scripts/test_camera.gd" id="2_nfmb1"]
+[ext_resource type="ArrayOccluder3D" uid="uid://dr0it73hhw6wa" path="res://assets/terrain_gen.occ" id="3_2e7yf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3n0m2"]
 
@@ -11,7 +12,7 @@
 script = ExtResource("1_5y5x3")
 
 [node name="TestCamera" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, 0)
 script = ExtResource("2_nfmb1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TestCamera"]
@@ -23,3 +24,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_hqhx1")
 
 [node name="Camera3D" type="Camera3D" parent="TestCamera"]
+far = 128.0
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("3_2e7yf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 407.0
+offset_bottom = 40.0
