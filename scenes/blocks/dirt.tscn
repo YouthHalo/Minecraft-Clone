@@ -17,6 +17,7 @@ material = SubResource("StandardMaterial3D_e4gpa")
 [node name="Dirt" type="Node3D"]
 
 [node name="0 - Dirt" type="MeshInstance3D" parent="."]
+visibility_range_end = 128.0
 mesh = SubResource("BoxMesh_fkm01")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="0 - Dirt"]
@@ -26,3 +27,4 @@ shape = SubResource("BoxShape3D_j1ovb")
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("2_sbgl6")
+bake_simplification_distance = 2.0

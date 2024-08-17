@@ -24,7 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 mesh = SubResource("BoxMesh_hqhx1")
 
 [node name="Camera3D" type="Camera3D" parent="TestCamera"]
-far = 128.0
+far = 256.0
 
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("3_2e7yf")

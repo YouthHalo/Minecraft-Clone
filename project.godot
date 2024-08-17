@@ -103,4 +103,6 @@ pause={
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=0
+occlusion_culling/occlusion_rays_per_thread=128
 occlusion_culling/use_occlusion_culling=true

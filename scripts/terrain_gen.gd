@@ -13,6 +13,11 @@ var Y=0
 
 func _ready():
 	generate_planes()
+	generate_planes()
+	generate_planes()
+	generate_planes()
+	generate_planes()
+	generate_planes()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
