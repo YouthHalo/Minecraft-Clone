@@ -10,25 +10,25 @@
 [ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/blocks/textures/crafting_table_side.png" id="8_t8tse"]
 [ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/blocks/textures/oak_planks.png" id="9_86vdq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx8hq"]
 albedo_texture = ExtResource("1_j26ju")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
-material = SubResource("StandardMaterial3D_e4gpa")
+material = SubResource("StandardMaterial3D_bx8hq")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgpph"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2l4v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ppv0"]
 albedo_texture = ExtResource("2_j3n7k")
 metallic = 0.5
 uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wgphs"]
-material = SubResource("StandardMaterial3D_y2l4v")
+material = SubResource("StandardMaterial3D_1ppv0")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q20be"]
 albedo_texture = ExtResource("3_0pooe")
