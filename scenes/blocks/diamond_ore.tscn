@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://2gavpv405d67"]
+
+[ext_resource type="Texture2D" uid="uid://b1lwl7is0g6mv" path="res://assets/blocks/textures/diamond_ore.png" id="1_5bd6c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrx5b"]
+albedo_texture = ExtResource("1_5bd6c")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_k2suf"]
+material = SubResource("StandardMaterial3D_mrx5b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fdin"]
+
+[node name="Diamond Ore" type="Node3D"]
+
+[node name="3 - Diamond Ore" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_k2suf")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="3 - Diamond Ore"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="3 - Diamond Ore/StaticBody3D"]
+shape = SubResource("BoxShape3D_6fdin")
