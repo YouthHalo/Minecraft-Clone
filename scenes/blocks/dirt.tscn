@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://duu7e738w1me4"]
+
+[ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/blocks/textures/dirt.png" id="1_0uvv6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
+albedo_texture = ExtResource("1_0uvv6")
+metallic = 0.5
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_fkm01"]
+material = SubResource("StandardMaterial3D_e4gpa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j1ovb"]
+
+[node name="Dirt" type="Node3D"]
+
+[node name="0 - Dirt" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fkm01")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="0 - Dirt"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="0 - Dirt/StaticBody3D"]
+shape = SubResource("BoxShape3D_j1ovb")
