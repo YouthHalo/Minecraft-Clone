@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://c050ao5aowhnh"]
+[gd_scene load_steps=4 format=3 uid="uid://c050ao5aowhnh"]
 
 [ext_resource type="Script" path="res://scripts/terrain_gen.gd" id="1_5y5x3"]
+[ext_resource type="Script" path="res://scripts/test_camera.gd" id="2_nfmb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3n0m2"]
 
 [node name="TerrainGen" type="Node3D"]
 script = ExtResource("1_5y5x3")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3, 0)
+[node name="TestCamera" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+script = ExtResource("2_nfmb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestCamera"]
+shape = SubResource("BoxShape3D_3n0m2")
+disabled = true
+
+[node name="Camera3D" type="Camera3D" parent="TestCamera"]

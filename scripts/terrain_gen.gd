@@ -2,10 +2,13 @@ extends Node3D
 
 var stone = preload("res://scenes/blocks/stone.tscn")
 var dirt = preload("res://scenes/blocks/dirt.tscn")
+
+@onready var camera = $TestCamera/Camera3D
 # Called when the node enters the scene tree for the first time.
 
 var plane_size = 100
 var block_size = 1.0
+var mouseSens = 0.005
 
 func _ready():
 	generate_planes()
@@ -25,5 +28,5 @@ func generate_planes() -> void:
 			
 			# Generate dirt blocks at y=1
 			var dirt_instance: Node3D = dirt.instantiate()
-			dirt_instance.transform.origin = Vector3(x * block_size, block_size, z * block_size)
+			dirt_instance.transform.origin = Vector3(x * block_size, 0, z * block_size)
 			add_child(dirt_instance)
