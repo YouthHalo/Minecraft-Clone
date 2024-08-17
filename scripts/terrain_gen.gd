@@ -28,5 +28,6 @@ func generate_planes() -> void:
 			
 			# Generate dirt blocks at y=1
 			var dirt_instance: Node3D = dirt.instantiate()
-			dirt_instance.transform.origin = Vector3(x * block_size, 0, z * block_size)
+			dirt_instance.transform.origin = Vector3(x * block_size, 1, z * block_size)
 			add_child(dirt_instance)
+			

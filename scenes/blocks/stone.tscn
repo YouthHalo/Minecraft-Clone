@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dygl5rd2jvvgj"]
+[gd_scene load_steps=6 format=3 uid="uid://dygl5rd2jvvgj"]
 
 [ext_resource type="Texture2D" uid="uid://c5fhgugqsesl4" path="res://assets/blocks/textures/stone.png" id="1_lrs40"]
+[ext_resource type="ArrayOccluder3D" uid="uid://cnxp6ctrd6tqw" path="res://assets/stone.occ" id="2_pxce1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y2l4v"]
 albedo_texture = ExtResource("1_lrs40")
@@ -16,10 +17,12 @@ material = SubResource("StandardMaterial3D_y2l4v")
 [node name="Stone" type="Node3D"]
 
 [node name="1 - Stone" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("BoxMesh_eihnb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="1 - Stone"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="1 - Stone/StaticBody3D"]
 shape = SubResource("BoxShape3D_uy2ml")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("2_pxce1")

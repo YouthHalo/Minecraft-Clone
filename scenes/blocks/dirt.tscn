@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://duu7e738w1me4"]
+[gd_scene load_steps=6 format=3 uid="uid://duu7e738w1me4"]
 
 [ext_resource type="Texture2D" uid="uid://drh6mafm67nnf" path="res://assets/blocks/textures/dirt.png" id="1_0uvv6"]
+[ext_resource type="ArrayOccluder3D" uid="uid://cgukbpq0bct8v" path="res://assets/dirt.occ" id="2_sbgl6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4gpa"]
 albedo_texture = ExtResource("1_0uvv6")
@@ -22,3 +23,6 @@ mesh = SubResource("BoxMesh_fkm01")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="0 - Dirt/StaticBody3D"]
 shape = SubResource("BoxShape3D_j1ovb")
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("2_sbgl6")
