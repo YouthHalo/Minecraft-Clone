@@ -18,9 +18,6 @@ func _input(event):
 	if event is InputEventKey and Input.is_key_pressed(KEY_P):
 		var vp = get_viewport()
 		vp.debug_draw = (vp.debug_draw + 1 ) % 5
-	if event is InputEventKey and Input.is_key_pressed(KEY_T):
-		print("does this work")
-		$"../OccluderInstance3D".position.x += 1
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# modify accumulated mouse rotation
 		rotX += -(event.relative.x * mouseSens)
