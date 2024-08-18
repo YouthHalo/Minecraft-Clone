@@ -1,7 +1,7 @@
 # Blender 4.2.0 MTL File: 'craftingTable.blend'
 # www.blender.org
 
-newmtl CraftingTableBottom
+newmtl bottom
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000
@@ -9,9 +9,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd oak_planks.png
+map_Kd textures/oak_planks.png
 
-newmtl CraftingTableFront
+newmtl front
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000
@@ -19,9 +19,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd crafting_table_front.png
+map_Kd textures/crafting_table_front.png
 
-newmtl CraftingTableSide
+newmtl side
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000
@@ -29,14 +29,14 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.500000
 d 1.000000
 illum 2
-map_Kd crafting_table_side.png
+map_Kd textures/crafting_table_side.png
 
-newmtl CraftingTableTop
+newmtl top
 Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
-Ni 1.450000
+Ni 1.500000
 d 1.000000
 illum 2
-map_Kd crafting_table_top.png
+map_Kd textures/crafting_table_top.png

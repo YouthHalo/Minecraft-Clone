@@ -11,14 +11,27 @@
 [ext_resource type="Texture2D" uid="uid://52l4rhgii8j7" path="res://assets/blocks/textures/crafting_table_side.png" id="8_t8tse"]
 [ext_resource type="Texture2D" uid="uid://v4qum0f4qpe" path="res://assets/blocks/textures/oak_planks.png" id="9_86vdq"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bx8hq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_savwx"]
+resource_name = "Material"
 albedo_texture = ExtResource("1_j26ju")
 metallic = 0.5
-uv1_scale = Vector3(3, 2, 3)
 texture_filter = 0
 
-[sub_resource type="BoxMesh" id="BoxMesh_bwjug"]
-material = SubResource("StandardMaterial3D_bx8hq")
+[sub_resource type="ArrayMesh" id="ArrayMesh_f8ie6"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1, 1),
+"attribute_data": PackedByteArray("AAAAAP//AAAAAP//////////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP////8AAAAAAAD/////AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAAAAP//"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcA"),
+"material": SubResource("StandardMaterial3D_savwx"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAD//wAA/7//////AAD/vwAA//////+//////////7////////8AgP//AAD//wCAAAD/////AIAAAAAA//8AgAAA//////+/AAAAAP///78AAP//AAD/vwAAAAAAAP+///8AAAAA/z8AAAAAAAD/P///AAD///8/AAAAAP///z//////AAD/v///AAAAAP+//////////7///wAA////vwAA//8AAP//AAAAAAAA////////AAD/////AAAAAP//////f////3////9/////f/9/////f////3////9/////f////3////9/////f///AAD/fwAA/38AAP9/AAD/f/9/AAD/fwAA/38AAP9/AAD/f////3////9/////f///")
+}]
+blend_shape_mode = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgpph"]
 
@@ -63,7 +76,7 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mihhm"]
 resource_name = "CraftingTableFront"
 albedo_texture = ExtResource("7_7akwq")
-metallic = 0.5
+metallic = 1.0
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmgug"]
@@ -128,12 +141,11 @@ _surfaces = [{
 "vertex_count": 4,
 "vertex_data": PackedByteArray("/v8AAAAAVNUAAAAAAABU1f7/AAD//1TVAAAAAP//VNVUVVRVVFVUVVRVVFVUVVRV")
 }]
-blend_shape_mode = 0
 
 [node name="Blocks" type="Node3D"]
 
 [node name="0 - Dirt" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_bwjug")
+mesh = SubResource("ArrayMesh_f8ie6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="0 - Dirt"]
 
