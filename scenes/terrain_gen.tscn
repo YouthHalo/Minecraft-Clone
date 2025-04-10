@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c050ao5aowhnh"]
 
-[ext_resource type="Script" path="res://scripts/terrain_gen.gd" id="1_5y5x3"]
-[ext_resource type="Script" path="res://scripts/test_camera.gd" id="2_nfmb1"]
+[ext_resource type="Script" uid="uid://bgrnvklya87n3" path="res://scripts/terrain_gen.gd" id="1_5y5x3"]
+[ext_resource type="Script" uid="uid://dapuna1b76yxp" path="res://scripts/test_camera.gd" id="2_nfmb1"]
 [ext_resource type="ArrayOccluder3D" uid="uid://dr0it73hhw6wa" path="res://assets/terrain_gen.occ" id="3_2e7yf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3n0m2"]
